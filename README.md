@@ -5,7 +5,7 @@ Datefuzz is a jQuery plugin which update automagically the fuzzy dates (X second
 ## Features
 
 * Ability to change the translation table.
-* Accept custom steps
+* Accepts custom steps
 * Works out-of-the-box
 * **Does not leak**
 
