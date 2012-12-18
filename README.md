@@ -23,10 +23,10 @@ Note that if you want to make it easy, you can just add `$.datefuzz( 'body' )` s
 ### $.datefuzz( option, value )
 `option` can be any value among :
 
-* debug (true / false), true means that datefuzz will warn you if you try to fuzzify a non-time element (default false)
-* interval (integer), which contains the number of milliseconds between each update (default 1000)
-* selector, which specify the Sizzle selector which will be automatically updated in the selected containers (default `.-datefuzz`)
-* table, which contains a translation table. Please see the source file for an example. Feel free to open pull requests for adding language tables to the repository
+* **debug** (true / false), true means that datefuzz will warn you if you try to fuzzify a non-time element (default false)
+* **interval** (integer), which contains the number of milliseconds between each update (default 1000)
+* **selector**, which specify the Sizzle selector which will be automatically updated in the selected containers (default `.-datefuzz`)
+* **table**, which contains a translation table. Please see the source file for an example. Feel free to open pull requests for adding language tables to the repository
 
 ### $.datefuzz( )
 Force fuzzification of datefuzz elements (the elements matching `selector` which are in one of the managed containers).
@@ -70,9 +70,10 @@ Fuzzify the element even if it is not managed. However, it will not be automatic
 The `$.datefuzz` function is meant to be used on containers, and definitely not on datefuzz elements (if you do so your application will leak. It would probably be noticeable too, since the elements would not be fuzzified :).
 
 ## License
-* -------------------------------------------------------------------------------
-* "THE BEER/PIZZA-WARE LICENSE" (Revision 42):
-* <nison.mael@gmail.com> wrote these files. As long as you retain this notice you
-* can do whatever you want with this stuff. If we meet some day, and you think
-* this stuff is worth it, you can buy me a beer or a pizza in return Maël Nison
-* -------------------------------------------------------------------------------
+
+    * -------------------------------------------------------------------------------
+    * "THE BEER/PIZZA-WARE LICENSE" (Revision 42):
+    * <nison.mael@gmail.com> wrote these files. As long as you retain this notice you
+    * can do whatever you want with this stuff. If we meet some day, and you think
+    * this stuff is worth it, you can buy me a beer or a pizza in return Maël Nison
+    * -------------------------------------------------------------------------------
