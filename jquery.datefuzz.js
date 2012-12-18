@@ -23,7 +23,7 @@
     var options = {
           debug : false,
        interval : 1000,
-       selector : '.-datefuzz',
+       selector : '.datefuzz',
           table : table
     };
 
