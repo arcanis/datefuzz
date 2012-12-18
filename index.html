@@ -68,8 +68,8 @@
 
 <ul>
 <li>Ability to change the translation table.</li>
-<li>Accept custom steps</li>
-<li>Work </li>
+<li>Accepts custom steps</li>
+<li>Works out-of-the-box</li>
 <li><strong>Does not leak</strong></li>
 </ul><p>If you add new datefuzz elements into your DOM, they will be fuzzified at the next update without more pain. And when you will remove these elements, they won't be called anymore. No user code required.</p>
 
@@ -86,6 +86,14 @@
 <h4>$.datefuzz( option, value )</h4>
 
 <p><code>option</code> can be any value among :</p>
+
+<h4>$.datefuzz( )</h4>
+
+<p>Force fuzzification of datefuzz elements (the elements matching selector which are in one of the managed containers).</p>
+
+<h4>$( ... ).datefuzz( )</h4>
+
+<p>Fuzzify the element even if it is not managed. However, it will not be automatically updated later (that's what $.datefuzz is meant for).</p>
 
 <ul>
 <li>
