@@ -123,7 +123,7 @@
 
             // Note : the external dateFormat script is used here because javascript's Date
             // object is not compatible with the HTML5 Datetime property. What a shame :(
-            .attr( 'datetime', dateFormat( new Date( ), 'yyyy-mm-dd"T"hh:MM:sso' ) )
+            .attr( 'datetime', dateFormat( new Date( ), dateFormat.masks.isoUtcDateTime ) )
 
             // Totally optional. Calling this allow to force the fuzzification rather than
             // waiting for the next update. You can call $.datefuzz() too, but it will update
@@ -151,7 +151,7 @@
 
             <span class="c1">// Note : the external dateFormat script is used here because javascript's Date</span>
             <span class="c1">// object is not compatible with the HTML5 Datetime property. What a shame :(</span>
-            <span class="p">.</span><span class="nx">attr</span><span class="p">(</span> <span class="s1">'datetime'</span><span class="p">,</span> <span class="nx">dateFormat</span><span class="p">(</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span> <span class="p">),</span> <span class="s1">'yyyy-mm-dd"T"hh:MM:sso'</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="p">.</span><span class="nx">attr</span><span class="p">(</span> <span class="s1">'datetime'</span><span class="p">,</span> <span class="nx">dateFormat</span><span class="p">(</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span> <span class="p">),</span> <span class="nx">dateFormat</span><span class="p">.</span><span class="nx">masks</span><span class="p">.</span><span class="nx">isoUtcDateTime</span> <span class="p">)</span> <span class="p">)</span>
 
             <span class="c1">// Totally optional. Calling this allow to force the fuzzification rather than</span>
             <span class="c1">// waiting for the next update. You can call $.datefuzz() too, but it will update</span>
