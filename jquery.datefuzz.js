@@ -82,7 +82,7 @@
 
                 if ( bestFit !== null ) {
                     var value = Math.floor( diffmsec / bestFit );
-                    $( this ).text( table[ bestFit ]( value, Math.abs( value ) ) );
+                    $( this ).text( options.table[ bestFit ]( value, Math.abs( value ) ) );
                 }
             }
         } );
