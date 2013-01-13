@@ -38,9 +38,21 @@
         }
     </style>
     <script>
+
+        function activateRepositoryInfos( json ) {
+            $( document ).ready( function ( ) {
+                $( '#infos' ).css( 'visibility', 'visible' )
+                    .find( 'time.creation' )
+                        .attr( 'datetime', json.data.created_at ).end( )
+                    .find( 'time.update' )
+                        .attr( 'datetime', json.data.pushed_at ).end( )
+                    .find( 'time.datefuzz' ).datefuzz( ); } ); }
+
         $( document ).ready( function ( ) {
-            $.datefuzz( 'header' );
-        } );
+            $.datefuzz( 'header' ); } );
+
+    </script>
+    <script src="https://api.github.com/repos/arcanis/js.datefuzz?callback=activateRepositoryInfos">
     </script>
   </head>
 
@@ -50,11 +62,11 @@
 
         <header>
           <h1>Datefuzz</h1>
-          <h2>Landed on earth <time class="datefuzz" datetime="2012-12-18T01:29-05:00"></time></h2>
+          <h2 id="infos" style="visibility: hidden">Landed on earth <time class="datefuzz creation"></time>, updated <time class="datefuzz update"></time></span></h2>
         </header>
 
         <section id="downloads" class="clearfix">
-          <a href="https://raw.github.com/arcanis/js.datefuzz/master/jquery.datefuzz.js" id="download-js" class="button"><span>datefuzz.js</span></a>
+          <a href="https://raw.github.com/arcanis/js.datefuzz/master/jquery.datefuzz.js" id="download-js" class="button"><span>Source code</span></a>
           <a href="https://github.com/arcanis/js.datefuzz" id="view-on-github" class="button"><span>View on GitHub</span></a>
         </section>
 
@@ -165,7 +177,7 @@
 <span class="nt">&lt;/script&gt;</span>
 </pre></div>
 
-<h3>Notes</h3>
+<h3>Note</h3>
 
 <p>The <code>$.datefuzz</code> function is meant to be used on containers, and definitely not on datefuzz elements (if you do so your application will leak. It would probably be noticeable too, since the elements would not be fuzzified :).</p>
 
