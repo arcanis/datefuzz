@@ -72,7 +72,7 @@
 
                 var bestFit = null;
                 for ( var unit in options.table ) {
-                    if ( Object.prototype.hasOwnProperty.call( table, unit ) ) {
+                    if ( Object.prototype.hasOwnProperty.call( options.table, unit ) ) {
                         unit = parseInt( unit, 10 );
                         if ( ! isNaN( unit ) && ( bestFit === null || ( unit > bestFit && Math.floor( diffmsec / unit ) >= 1 ) ) ) {
                             bestFit = unit;
