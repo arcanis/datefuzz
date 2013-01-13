@@ -54,7 +54,7 @@
         </header>
 
         <section id="downloads" class="clearfix">
-          <a href="https://github.com/arcanis/js.datefuzz/tarball/master" id="download-js" class="button"><span>Download .js</span></a>
+          <a href="https://raw.github.com/arcanis/js.datefuzz/master/jquery.datefuzz.js" id="download-js" class="button"><span>datefuzz.js</span></a>
           <a href="https://github.com/arcanis/js.datefuzz" id="view-on-github" class="button"><span>View on GitHub</span></a>
         </section>
 
@@ -67,8 +67,8 @@
 <p>Features :</p>
 
 <ul>
-<li>Ability to change the translation table.</li>
-<li>Accepts custom steps</li>
+<li>Ability to change the translation table</li>
+<li>Accepts custom steps (and custom text)</li>
 <li>Works out-of-the-box</li>
 <li><strong>Does not leak</strong></li>
 </ul><p>If you add new datefuzz elements into your DOM, they will be fuzzified at the next update without more pain. And when you will remove these elements, they won't be called anymore. No user code required.</p>
@@ -87,14 +87,6 @@
 
 <p><code>option</code> can be any value among :</p>
 
-<h4>$.datefuzz( )</h4>
-
-<p>Force fuzzification of datefuzz elements (the elements matching selector which are in one of the managed containers).</p>
-
-<h4>$( ... ).datefuzz( )</h4>
-
-<p>Fuzzify the element even if it is not managed. However, it will not be automatically updated later (that's what $.datefuzz is meant for).</p>
-
 <ul>
 <li>
 <strong>debug</strong> (true / false), true means that datefuzz will warn you if you try to fuzzify a non-<code>time</code> element (default false)</li>
@@ -104,7 +96,17 @@
 <strong>selector</strong>, which specify the Sizzle selector which will be automatically updated in the selected containers (default <code>.datefuzz</code>)</li>
 <li>
 <strong>table</strong>, which contains a translation table. Please see the source file for an example. Feel free to open pull requests for adding language tables to the repository</li>
-</ul><h3>Example</h3>
+</ul>
+
+<h4>$.datefuzz( )</h4>
+
+<p>Force fuzzification of datefuzz elements (the elements matching selector which are in one of the managed containers).</p>
+
+<h4>$( ... ).datefuzz( )</h4>
+
+<p>Fuzzify the element even if it is not managed. However, it will not be automatically updated later (that's what $.datefuzz is meant for).</p>
+
+<h3>Example</h3>
 
 <div id="my-fuzzy-container"></div>
 
