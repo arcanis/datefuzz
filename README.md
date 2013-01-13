@@ -65,7 +65,7 @@ Fuzzify the element even if it is not managed. However, it will not be automatic
 </script>
 ```
 
-## Notes
+## Note
 
 The `$.datefuzz` function is meant to be used on containers, and definitely not on datefuzz elements (if you do so your application will leak. It would probably be noticeable too, since the elements would not be fuzzified :).
 
