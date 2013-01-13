@@ -4,8 +4,8 @@ Datefuzz is a jQuery plugin which update automagically the fuzzy dates (X second
 
 ## Features
 
-* Ability to change the translation table.
-* Accepts custom steps
+* Ability to change the translation table
+* Accepts custom steps (and custom text)
 * Works out-of-the-box
 * **Does not leak**
 
@@ -53,7 +53,7 @@ Fuzzify the element even if it is not managed. However, it will not be automatic
 
             // Note : the external dateFormat script is used here because javascript's Date
             // object is not compatible with the HTML5 Datetime property. What a shame :(
-            .attr( 'datetime', dateFormat( new Date( ), 'yyyy-mm-dd"T"hh:MM:sso' ) )
+            .attr( 'datetime', dateFormat( new Date( ), dateFormat.masks.isoUtcDateTime ) )
 
             // Totally optional. Calling this allow to force the fuzzification rather than
             // waiting for the next update. You can call $.datefuzz() too, but it will update
