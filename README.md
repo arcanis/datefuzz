@@ -6,7 +6,7 @@ Datefuzz is a jQuery plugin which update automagically the fuzzy dates (X second
 
 * Ability to change the translation table
 * Accepts custom steps (and custom text)
-* Works out-of-the-box
+* Works out-of-the-box on Opera, Firefox, Chrome, IE, iOS
 * **Does not leak**
 
 If you add new datefuzz elements into your DOM, they will be fuzzified at the next update without more pain. And when you will remove these elements, they won't be called anymore. No user code required.
@@ -15,21 +15,25 @@ Oh, and if you don't use the auto-update ... then there won't be any timer on yo
 
 ## API
 
-### $.datefuzz( container )
-Adds a new datefuzz container to the update list. When this function is called for the first time, it starts the automatic updates.
-
-Note that if you want to make it easy, you can just add `$.datefuzz( 'body' )` somewhere and you're done.
-
 ### $.datefuzz( option, value )
 `option` can be any value among :
 
 * **debug** (true / false), true means that datefuzz will warn you if you try to fuzzify a non-time element (default false)
 * **interval** (integer), which contains the number of milliseconds between each update (default 1000)
-* **selector**, which specify the Sizzle selector which will be automatically updated in the selected containers (default `.-datefuzz`)
+* **selector**, which specify the Sizzle selector which will be automatically updated in the selected containers (default `.datefuzz`)
 * **table**, which contains a translation table. Please see the source file for an example. Feel free to open pull requests for adding language tables to the repository
+* **parser**, which is a function called to convert a date string into a javascript Date object. The default one is able to parse `YYYY-MM-DD hh:mm:ss` dates (assuming UTC timezone).
+
+### $.datefuzz( container )
+Adds a new datefuzz container (jQuery/DOM object or selector) to the update list. Datefuzz containers are used to fetch the elements needing a reprint.
+
+When this function is called for the first time, it starts the automatic updates.
+
+**Note :** if you want to make it easy, you can just add `$.datefuzz( 'body' )` somewhere and you're done.
+**Note :** you don't have to add datefuzz elements themselves to the update list. It wouldn't work as expected.
 
 ### $.datefuzz( )
-Force fuzzification of datefuzz elements (the elements matching `selector` which are in one of the managed containers).
+Force the fuzzification of managed datefuzz elements (the elements matching `selector` which are in one of the managed containers).
 
 ### $( ... ).datefuzz( )
 Fuzzify the element even if it is not managed. However, it will not be automatically updated later (that's what `$.datefuzz` is meant for).
@@ -64,10 +68,6 @@ Fuzzify the element even if it is not managed. However, it will not be automatic
     }, 1000 );
 </script>
 ```
-
-## Note
-
-The `$.datefuzz` function is meant to be used on containers, and definitely not on datefuzz elements (if you do so your application will leak. It would probably be noticeable too, since the elements would not be fuzzified :).
 
 ## License
 
