@@ -8,19 +8,47 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <style>
+        b, strong {
+            font-weight: bold;
+        }
+    </style>
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Datefuzz.js by arcanis</title>
+    <title>Datefuzz.js by @arcanis</title>
+
+    <script src="jquery-1.9.0.min.js">
+    </script>
+
+    <script src="https://raw.github.com/arcanis/js.datefuzz/master/jquery.datefuzz.js">
+    </script>
+
+    <script>function activateRepositoryInfos( json ) {
+      $( document ).ready( function ( ) {
+        $( '#infos' ).css( 'visibility', 'visible' )
+          .find( 'time.creation' )
+            .attr( 'datetime', json.data.created_at ).end( )
+          .find( 'time.update' )
+            .attr( 'datetime', json.data.pushed_at ).end( )
+          .find( 'time.datefuzz' ).datefuzz( ); } ); }</script>
+
+    <script>$( document ).ready( function ( ) {
+      $.datefuzz( 'header' ); } );</script>
+
+    <script src="https://api.github.com/repos/arcanis/js.datefuzz?callback=activateRepositoryInfos">
+    </script>
   </head>
 
   <body>
     <header>
       <div class="inner">
         <h1>Datefuzz.js</h1>
-        <h2></h2>
+        <h2 id="infos" style="visibility: hidden">
+            Landed on earth <time class="datefuzz creation"></time>,<br />
+            Updated <time class="datefuzz update"></time></span></h2>
         <a href="https://github.com/arcanis/js.datefuzz" class="button"><small>View project on</small>GitHub</a>
       </div>
     </header>
@@ -66,8 +94,9 @@
 
 <p>When this function is called for the first time, it starts the automatic updates.</p>
 
-<p><strong>Note :</strong> if you want to make it easy, you can just add <code>$.datefuzz( 'body' )</code> somewhere and you're done.
-<strong>Note :</strong> you don't have to add datefuzz elements themselves to the update list. It wouldn't work as expected.</p>
+<p><strong>Note :</strong> if you want to make it easy, add <code>$.datefuzz( 'body' )</code> somewhere and you're done.</p>
+
+<p><strong>Note :</strong> you don't have to add datefuzz elements themselves to the update list. It wouldn't work as expected.</p>
 
 <h3>$.datefuzz( )</h3>
 
@@ -117,28 +146,12 @@
 * -------------------------------------------------------------------------------
 </code></pre>
 
-<p>
-    var pkBaseURL = ((&amp;quot;https:&amp;quot; == document.location.protocol) ? &amp;quot;&lt;a href="https://piwik.arcastel.com/"&gt;https://piwik.arcastel.com/&lt;/a&gt;&amp;quot; : &amp;quot;&lt;a href="http://piwik.arcastel.com/%22"&gt;http://piwik.arcastel.com/&amp;quot;&lt;/a&gt;);
-    document.write(unescape(&amp;quot;%3Cscript src=&amp;#39;&amp;quot; + pkBaseURL + &amp;quot;piwik.js&amp;#39; type=&amp;#39;text/javascript&amp;#39;%3E%3C/script%3E&amp;quot;));
-
-    try {
-        var piwikTracker = Piwik.getTracker(pkBaseURL + &amp;quot;piwik.php&amp;quot;, 4);
-        piwikTracker.trackPageView();
-        piwikTracker.enableLinkTracking();
-    } catch( err ) {}
-</p>
-    <p><img src="http://piwik.arcastel.com/piwik.php?idsite=4" alt=""></p>
-
         </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/arcanis/js.datefuzz/zipball/master" class="button">
+          <a href="https://raw.github.com/arcanis/js.datefuzz/master/jquery.datefuzz.js" class="button">
             <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/arcanis/js.datefuzz/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
+            .js file
           </a>
 
           <p class="repo-owner"><a href="https://github.com/arcanis/js.datefuzz"></a> is maintained by <a href="https://github.com/arcanis">arcanis</a>.</p>
@@ -148,6 +161,18 @@
       </div>
     </div>
 
-  
+    <!-- Begin Piwik Tracking Code -->
+      <script type="text/javascript">
+        var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.arcastel.com/" : "http://piwik.arcastel.com/");
+        document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+      </script><script type="text/javascript">
+        try {
+          var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 4);
+          piwikTracker.trackPageView();
+          piwikTracker.enableLinkTracking();
+        } catch( err ) {}
+      </script><noscript><p><img src="http://piwik.arcastel.com/piwik.php?idsite=4" style="border:0" alt="" /></p></noscript>
+    <!-- End Piwik Tracking Code -->
+
   </body>
 </html>
