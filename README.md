@@ -51,7 +51,7 @@ Fuzzify the element even if it is not managed. However, it will not be automatic
     window.setInterval( function ( ) {
         $( '<time/>' )
 
-            // This class will allow the >time/< element to be updated automatically
+            // This class will allow the <time/> element to be updated automatically
             // because it will match the `selector` option of Datefuzz.
             .addClass( 'datefuzz' )
 
