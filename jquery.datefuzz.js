@@ -20,11 +20,26 @@
         29030400000 : function ( n, a ) { return relative( n, a + ' year'   + plural( a ) ); }
     };
 
+    var parser = function ( str ) {
+        var dateparts = str.split( /[- :TZ]/g );
+
+        var date = new Date( );
+        date.setUTCFullYear( dateparts[ 0 ] );
+        date.setUTCMonth( dateparts[ 1 ] - 1 );
+        date.setUTCDate( dateparts[ 2 ] );
+        date.setUTCHours( dateparts[ 3 ] );
+        date.setUTCMinutes( dateparts[ 4 ] );
+        date.setUTCSeconds( dateparts[ 5 ] );
+
+        return date;
+    };
+
     var options = {
           debug : false,
        interval : 1000,
        selector : '.datefuzz',
-          table : table
+          table : table,
+         parser : parser
     };
 
     var iterate = function ( ) {
@@ -65,14 +80,15 @@
             if ( this.tagName.toLowerCase( ) != 'time' ) {
                 options.debug && console.log( 'Warning : calling datefuzz on a non-time tag' );
             } else {
-                var datetime = new Date( $( this ).attr( 'datetime' ) );
-                var pastmsec = datetime.getTime( );
+                var datetime = $( this ).attr( 'datetime' );
+                if ( ! datetime ) return ;
 
+                var pastmsec = options.parser( datetime ).getTime( );
                 var diffmsec = nowmsec - pastmsec;
 
                 var bestFit = null;
                 for ( var unit in options.table ) {
-                    if ( Object.prototype.hasOwnProperty.call( table, unit ) ) {
+                    if ( Object.prototype.hasOwnProperty.call( options.table, unit ) ) {
                         unit = parseInt( unit, 10 );
                         if ( ! isNaN( unit ) && ( bestFit === null || ( unit > bestFit && Math.floor( diffmsec / unit ) >= 1 ) ) ) {
                             bestFit = unit;
@@ -82,7 +98,7 @@
 
                 if ( bestFit !== null ) {
                     var value = Math.floor( diffmsec / bestFit );
-                    $( this ).text( table[ bestFit ]( value, Math.abs( value ) ) );
+                    $( this ).text( options.table[ bestFit ]( value, Math.abs( value ) ) );
                 }
             }
         } );
