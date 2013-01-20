@@ -30,6 +30,7 @@ Adds a new datefuzz container (jQuery/DOM object or selector) to the update list
 When this function is called for the first time, it starts the automatic updates.
 
 **Note :** if you want to make it easy, you can just add `$.datefuzz( 'body' )` somewhere and you're done.
+
 **Note :** you don't have to add datefuzz elements themselves to the update list. It wouldn't work as expected.
 
 ### $.datefuzz( )
