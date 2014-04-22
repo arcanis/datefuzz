@@ -21,16 +21,8 @@
     };
 
     var parser = function ( str ) {
-        var dateparts = str.split( /[- :TZ]/g );
-
         var date = new Date( );
-        date.setUTCFullYear( dateparts[ 0 ] );
-        date.setUTCMonth( dateparts[ 1 ] - 1 );
-        date.setUTCDate( dateparts[ 2 ] );
-        date.setUTCHours( dateparts[ 3 ] );
-        date.setUTCMinutes( dateparts[ 4 ] );
-        date.setUTCSeconds( dateparts[ 5 ] );
-
+        date.setTime( Date.parse( str ) );
         return date;
     };
 
